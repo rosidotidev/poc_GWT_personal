@@ -1,0 +1,91 @@
+@use '@angular/material' as mat;
+
+html {
+	@include mat.theme((
+		color: (
+			theme-type: light,
+			primary: mat.$green-palette,
+			tertiary: mat.$orange-palette,
+		),
+		typography: 'Trebuchet MS',
+		density: -1,
+	));
+	color-scheme: light;
+	background: var(--paper);
+}
+
+:root {
+	--paper: #f3f1e9;
+	--surface: #fffefa;
+	--ink: #173d35;
+	--muted: #738079;
+	--line: #dce1d8;
+	--forest: #174c40;
+	--forest-deep: #103a32;
+	--coral: #d9644a;
+	--coral-soft: #f8e8df;
+	--sage: #e4eee5;
+	--gold: #e9ca74;
+	--mat-sys-primary: #174c40;
+	--mat-sys-on-primary: #fffefa;
+	--mat-sys-primary-container: #dce9df;
+	--mat-sys-on-primary-container: #103a32;
+	--mat-sys-secondary: #d9644a;
+	--mat-sys-on-secondary: #fffefa;
+	--mat-sys-secondary-container: #f8e8df;
+	--mat-sys-on-secondary-container: #642d24;
+	--mat-sys-tertiary: #9b6d27;
+	--mat-sys-on-tertiary: #fffefa;
+	--mat-sys-tertiary-container: #f3e8c9;
+	--mat-sys-on-tertiary-container: #49340f;
+	--mat-sys-background: #f3f1e9;
+	--mat-sys-on-background: #173d35;
+	--mat-sys-surface: #fffefa;
+	--mat-sys-on-surface: #173d35;
+	--mat-sys-surface-variant: #e4eee5;
+	--mat-sys-on-surface-variant: #53665d;
+	--mat-sys-outline: #82948a;
+	--mat-sys-outline-variant: #c7d2c9;
+}
+
+* { box-sizing: border-box; }
+
+body {
+	margin: 0;
+	min-width: 320px;
+	color: var(--ink);
+	background-color: var(--paper);
+	background-image: radial-gradient(#b9c4b8 0.65px, transparent 0.65px);
+	background-size: 17px 17px;
+	font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+.mat-mdc-form-field {
+	--mdc-outlined-text-field-outline-color: #aab9ae;
+	--mdc-outlined-text-field-hover-outline-color: #648375;
+	--mdc-outlined-text-field-focus-outline-color: var(--forest);
+	--mdc-outlined-text-field-label-text-color: #64746c;
+	--mdc-outlined-text-field-focus-label-text-color: var(--forest);
+	--mdc-outlined-text-field-input-text-color: var(--forest-deep);
+	--mdc-outlined-text-field-caret-color: var(--coral);
+}
+
+.mat-mdc-text-field-wrapper {
+	background-color: var(--surface) !important;
+}
+
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+.mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+	border-width: 2px;
+}
+
+.mat-mdc-button:not(:disabled) { color: var(--forest); }
+.mat-mdc-unelevated-button:not(:disabled) {
+	--mdc-filled-button-container-color: var(--forest);
+	--mdc-filled-button-label-text-color: #fffefa;
+}
+
+.mat-mdc-unelevated-button:not(:disabled):hover {
+	--mdc-filled-button-container-color: var(--forest-deep);
+}

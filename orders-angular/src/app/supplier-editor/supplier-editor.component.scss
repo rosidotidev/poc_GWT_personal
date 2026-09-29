@@ -1,0 +1,96 @@
+@use '../shared/popup-layout' as popup;
+
+:host {
+  @include popup.host;
+}
+
+.editor-shell {
+  @include popup.shell;
+}
+
+.editor-heading {
+  @include popup.heading;
+}
+
+.heading-mark {
+  @include popup.heading-mark;
+}
+
+.heading-copy { @include popup.heading-copy; }
+
+h1 {
+  @include popup.title;
+}
+
+.form-section {
+  @include popup.section;
+  background: var(--sage);
+  background-image: radial-gradient(rgb(23 76 64 / 14%) 0.55px, transparent 0.55px);
+  background-size: 13px 13px;
+}
+
+.contact-section {
+  padding-top: 13px;
+  padding-bottom: 2px;
+  border-top: 1px solid #cad8cd;
+  background-color: var(--paper);
+  background-image: none;
+}
+
+.section-heading {
+  @include popup.section-heading;
+}
+
+.section-index {
+  @include popup.section-index;
+}
+
+.section-index-coral { color: var(--coral); }
+
+.section-heading h2 {
+  @include popup.section-title;
+}
+
+.section-rule { @include popup.section-rule; }
+
+.field-grid {
+  @include popup.field-grid;
+}
+
+.phone-field { grid-column: 1 / -1; }
+
+.problem-banner {
+  @include popup.problem-banner;
+}
+
+.editor-actions {
+  @include popup.actions;
+}
+
+.editor-actions button[mat-flat-button] { min-width: 154px; }
+.editor-actions .cancel-action { border: 1px solid #b8c4ba; border-radius: 5px; }
+
+.loading-state {
+  @include popup.loading-state;
+}
+
+@media (max-width: 560px) {
+  .editor-heading {
+    @include popup.compact-heading;
+  }
+
+  .heading-mark { width: 36px; font-size: 21px; }
+  h1 { font-size: 25px; }
+  .form-section { @include popup.compact-section; }
+  .contact-section { padding-top: 12px; }
+  .field-grid { @include popup.compact-field-grid; }
+  .phone-field { grid-column: 1 / -1; }
+  .problem-banner { margin-right: 18px; margin-left: 18px; }
+  .editor-actions { @include popup.compact-actions; }
+  .editor-actions button[mat-flat-button] { min-width: 132px; }
+}
+
+@media (max-width: 380px) {
+  .field-grid { @include popup.single-column-field-grid; }
+  .phone-field { grid-column: auto; }
+}

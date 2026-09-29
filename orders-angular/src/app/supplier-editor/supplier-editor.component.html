@@ -1,0 +1,76 @@
+<main class="editor-shell">
+  <header class="editor-heading">
+    <div class="heading-mark" aria-hidden="true">S</div>
+    <div class="heading-copy">
+      <h1>{{ mode() === 'create' ? 'Create supplier' : 'Edit supplier' }}</h1>
+    </div>
+  </header>
+
+  @if (loading()) {
+    <div class="loading-state" role="status" aria-live="polite">
+      <mat-spinner diameter="28" />
+      <span>Loading supplier…</span>
+    </div>
+  } @else {
+    <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+      <section class="form-section" aria-labelledby="company-heading">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <h2 id="company-heading">Company</h2>
+          <span class="section-rule"></span>
+        </div>
+        <div class="field-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Supplier code</mat-label>
+            <input matInput formControlName="code" autocomplete="organization-title" maxlength="40" required />
+            @if (fieldError('code'); as error) { <mat-error>{{ error }}</mat-error> }
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Company name</mat-label>
+            <input matInput formControlName="name" autocomplete="organization" maxlength="160" required />
+            @if (fieldError('name'); as error) { <mat-error>{{ error }}</mat-error> }
+          </mat-form-field>
+        </div>
+      </section>
+
+      <section class="form-section contact-section" aria-labelledby="contact-heading">
+        <div class="section-heading">
+          <span class="section-index section-index-coral">02</span>
+          <h2 id="contact-heading">Contact</h2>
+          <span class="section-rule"></span>
+        </div>
+        <div class="field-grid">
+          <mat-form-field appearance="outline">
+            <mat-label>Contact name</mat-label>
+            <input matInput formControlName="contactName" autocomplete="name" maxlength="160" />
+            @if (fieldError('contactName'); as error) { <mat-error>{{ error }}</mat-error> }
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" formControlName="email" autocomplete="email" maxlength="200" />
+            @if (fieldError('email'); as error) { <mat-error>{{ error }}</mat-error> }
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="phone-field">
+            <mat-label>Phone</mat-label>
+            <input matInput type="tel" formControlName="phone" autocomplete="tel" maxlength="60" />
+            @if (fieldError('phone'); as error) { <mat-error>{{ error }}</mat-error> }
+          </mat-form-field>
+        </div>
+      </section>
+
+      @if (problem(); as currentProblem) {
+        <div class="problem-banner" role="alert">
+          <strong>{{ currentProblem.title }}</strong>
+          <span>{{ currentProblem.detail }}</span>
+        </div>
+      }
+      <footer class="editor-actions">
+        <button mat-button type="button" (click)="cancel()" [disabled]="saving()" class="cancel-action">Cancel</button>
+        <button mat-flat-button type="submit" [disabled]="saving() || loading() || form.invalid">
+          @if (saving()) { <mat-spinner diameter="18" /> }
+          {{ saving() ? 'Saving…' : mode() === 'create' ? 'Create supplier' : 'Save changes' }}
+        </button>
+      </footer>
+    </form>
+  }
+</main>

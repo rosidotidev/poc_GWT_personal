@@ -1,0 +1,13 @@
+{
+  "name": "orders-gwt-e2e",
+  "private": true,
+  "scripts": {
+    "test": "npm run test:e2e",
+    "test:e2e": "powershell -NoProfile -ExecutionPolicy Bypass -File e2e/scripts/run-tests.ps1",
+    "test:e2e:headed": "powershell -NoProfile -ExecutionPolicy Bypass -File e2e/scripts/run-tests.ps1 -Headed",
+    "test:e2e:clean": "powershell -NoProfile -ExecutionPolicy Bypass -File e2e/scripts/cleanup.ps1"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.55.1"
+  }
+}

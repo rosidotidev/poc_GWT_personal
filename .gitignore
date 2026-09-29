@@ -1,0 +1,14 @@
+target/
+*.class
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+gwt-unitCache/
+.gwt-tmp/
+orders-frontend/src/main/webapp/ordersapp/
+node_modules/
+playwright-report/
+test-results/
+orders-backend/target/e2e/

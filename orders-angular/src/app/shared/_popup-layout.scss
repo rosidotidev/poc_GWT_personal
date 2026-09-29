@@ -1,0 +1,139 @@
+@mixin host {
+  display: block;
+  color: var(--ink);
+  font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+}
+
+@mixin shell {
+  overflow: hidden;
+  background: var(--paper);
+}
+
+@mixin heading {
+  position: relative;
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+  overflow: hidden;
+  padding: 20px 68px 20px 28px;
+  border-bottom: 4px solid var(--coral);
+  color: #fffefa;
+  background-color: var(--forest);
+  background-image: repeating-linear-gradient(135deg, transparent 0 18px, rgb(255 255 255 / 3%) 18px 19px);
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    width: 31%;
+    height: 1px;
+    background: var(--gold);
+    content: '';
+  }
+}
+
+@mixin heading-mark {
+  display: grid;
+  width: 44px;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgb(233 202 116 / 72%);
+  color: var(--gold);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 25px;
+  font-style: italic;
+}
+
+@mixin heading-copy { min-width: 0; }
+
+@mixin title {
+  margin: 0;
+  color: #fffefa;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+@mixin section { padding: 20px 28px 6px; }
+
+@mixin section-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 11px;
+}
+
+@mixin section-index {
+  color: var(--forest);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+@mixin section-title {
+  margin: 0;
+  color: var(--forest-deep);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+@mixin section-rule { height: 1px; flex: 1; background: #b9cbbd; }
+
+@mixin field-grid($column-gap: 15px) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 $column-gap;
+}
+
+@mixin problem-banner {
+  display: grid;
+  gap: 4px;
+  margin: 4px 28px 12px;
+  padding: 11px 13px;
+  border-left: 4px solid var(--coral);
+  background: var(--coral-soft);
+  color: #642d24;
+  font-size: 13px;
+}
+
+@mixin actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  padding: 14px 28px 18px;
+  border-top: 1px solid var(--line);
+  background: #eeece2;
+}
+
+@mixin loading-state {
+  display: flex;
+  min-height: 260px;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--forest);
+  background: var(--sage);
+}
+
+@mixin compact-heading {
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px;
+  padding: 16px 58px 16px 18px;
+}
+
+@mixin compact-section { padding: 17px 18px 2px; }
+
+@mixin compact-actions { padding: 12px 18px 16px; }
+
+@mixin compact-field-grid($column-gap: 10px) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 $column-gap;
+}
+
+@mixin single-column-field-grid {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
